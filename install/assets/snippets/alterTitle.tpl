@@ -13,7 +13,11 @@
  */
 
 //[[alterTitle? &id = `[+id+]`]] к примеру для вывода в Ditto
-$id = isset($id) ? $id : $modx->documentIdentifier;  
-$arr = $modx->getPageInfo($id,1,'pagetitle,longtitle');
+if(isset($id)) {
+	$id = isset($id) ? $id : $modx->documentIdentifier;  
+	$arr = $modx->getPageInfo($id,1,'pagetitle,longtitle');
+} else {
+	$arr = $modx->documentObject;	
+}
 $title = (strlen($arr["longtitle"])>0) ? $arr["longtitle"] : $arr["pagetitle"]; 
 return $title;
