@@ -14,7 +14,6 @@
 
 //[[alterTitle? &id = `[+id+]`]] к примеру для вывода в Ditto
 if(isset($id)) {
-	$id = isset($id) ? $id : $modx->documentIdentifier;  
 	$arr = $modx->getPageInfo($id,1,'pagetitle,longtitle');
 } else {
 	$arr = $modx->documentObject;	
